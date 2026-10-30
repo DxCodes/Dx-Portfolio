@@ -5,23 +5,38 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center gap-4 border-t border-[var(--line)] px-4 py-8 text-center sm:flex-row sm:justify-between sm:px-6 lg:px-8">
-      <p className="text-lg font-bold tracking-[-0.02em] text-[var(--faint)]">
-        Made with <span className="text-[#e11d48]">❤️</span> by Dhruv
-      </p>
-      <div className="flex items-center gap-2">
-        {socials.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={item.label}
-            className="inline-flex size-9 items-center justify-center rounded-full border border-[var(--line)] text-[var(--ink)] transition hover:bg-[var(--card-hover)]"
-          >
-            {item.icon}
-          </a>
-        ))}
+    <footer className="relative isolate overflow-hidden border-t border-[var(--line)] px-4 py-10 sm:px-6 lg:px-8">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse 120% 90% at 50% 115%, var(--footer-mist), transparent 70%), radial-gradient(ellipse 70% 80% at 12% 120%, var(--footer-accent), transparent 72%), radial-gradient(ellipse 70% 80% at 88% 120%, var(--footer-mist), transparent 72%)",
+          }}
+        />
+      </div>
+
+      <div className="relative grid grid-cols-1 items-center gap-5 text-center md:grid-cols-3 md:gap-4">
+        <p className="text-sm font-medium tracking-[-0.02em] text-[var(--fainter)] md:justify-self-start md:text-left">
+          © 2026 heyitsdhruv.com. All rights reserved.
+        </p>
+        <div className="flex items-center justify-center gap-2 md:justify-self-center">
+          {socials.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={item.label}
+              className="inline-flex size-9 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--card)] text-[var(--ink)] transition hover:bg-[var(--card-hover)]"
+            >
+              {item.icon}
+            </a>
+          ))}
+        </div>
+        <p className="text-sm font-medium tracking-[-0.02em] text-[var(--faint)] md:justify-self-end md:text-right">
+          Made with <span className="text-[#e11d48]">❤️</span> by Dhruv
+        </p>
       </div>
     </footer>
   );

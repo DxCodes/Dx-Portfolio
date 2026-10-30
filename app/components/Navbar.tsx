@@ -1,6 +1,7 @@
 "use client"
 import  { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { PiPersonSimpleRunLight } from "react-icons/pi";
 
 // Icons from lucide-react, commonly used with shadcn/ui
 const MenuIcon = ({ className }: { className?: string }) => (
@@ -38,23 +39,6 @@ const XIcon = ({ className }: { className?: string }) => (
     <path d="M18 6 6 18" />
     <path d="m6 6 12 12" />
   </svg>
-);
-
-const MountainIcon = ({ className }: { className?: string }) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-    >
-        <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
 );
 
 const SunIcon = ({ className }: { className?: string }) => (
@@ -139,8 +123,11 @@ const Header = () => {
           
           {/* Logo Section */}
           <div className="flex-shrink-0">
-            <a href="#" className="flex items-center gap-2">
-               <MountainIcon className="h-6 w-6 text-[var(--ink)]" />
+            <a href="#" className="group flex items-center gap-2">
+              <PiPersonSimpleRunLight
+                aria-hidden
+                className="size-7 text-[var(--ink)] transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-px"
+              />
               <span className="text-lg font-semibold text-[var(--ink)]">Portfolio</span>
             </a>
           </div>

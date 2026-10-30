@@ -19,6 +19,8 @@
   --button-bg: #ffffff;
   --button-fg: #000000;
   --fade: #000000;
+  --footer-mist: rgba(255, 255, 255, 0.08);
+  --footer-accent: rgba(255, 90, 10, 0.16);
 }
 
 .light {
@@ -37,6 +39,8 @@
   --button-bg: #111111;
   --button-fg: #ffffff;
   --fade: #f4f4f2;
+  --footer-mist: rgba(0, 0, 0, 0.05);
+  --footer-accent: rgba(255, 90, 10, 0.1);
 }
 
 @theme inline {

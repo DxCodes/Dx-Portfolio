@@ -80,8 +80,8 @@ const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 export default function Hero({
   name = "Dhruv",
   intro = "I am",
-  role = "Software Developer",
-  description = "Design engineer based in Austin. I don't just bridge design and engineering – I own the entire experience, from the first sketch to the final shipped product.",
+  role = "Software Developer & Fintech Builder",
+  description = "I build web applications and SaaS products at the intersection of technology and finance. With a background in trading and a passion for building, I enjoy turning complex ideas and workflows into simple, useful software.",
   greetings = DEFAULT_GREETINGS,
   emoji = "👋",
 
@@ -185,7 +185,7 @@ export default function Hero({
       )}
 
       <div
-        className="relative mx-auto flex w-full max-w-[var(--hero-max-width)] items-start px-4 pt-[146px] pb-4 sm:px-6 md:min-h-[var(--hero-min-height)] md:pb-8 lg:px-8"
+        className="relative mx-auto flex w-full max-w-[var(--hero-max-width)] items-start px-4 pt-[146px] pb-14 sm:px-6 md:min-h-[var(--hero-min-height)] md:pb-8 lg:px-8"
       >
         <div
           className={`grid w-full items-center gap-6 lg:gap-6 ${

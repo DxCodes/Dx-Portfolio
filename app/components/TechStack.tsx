@@ -8,7 +8,7 @@ const logos: { name: string; icon: ReactNode }[] = [
   { name: "Supabase", icon: <SupabaseIcon /> },
   { name: "PostgreSQL", icon: <PostgresIcon /> },
   { name: "Claude", icon: <ClaudeIcon /> },
-  { name: "Grok", icon: <GrokIcon /> },
+  { name: "Grokbot", icon: <GrokIcon /> },
   { name: "Cursor", icon: <CursorIcon /> },
   { name: "ChatGPT", icon: <ChatGptIcon /> },
   { name: "Vercel", icon: <VercelIcon /> },
