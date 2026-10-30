@@ -4,6 +4,7 @@
 
 :root,
 .dark {
+  --page: #000000;
   --frame: #000000;
   --ink: #ffffff;
   --muted: #8b8b8b;
@@ -21,9 +22,11 @@
   --fade: #000000;
   --footer-mist: rgba(255, 255, 255, 0.08);
   --footer-accent: rgba(255, 90, 10, 0.16);
+  --strap: rgba(255, 255, 255, 0.9);
 }
 
 .light {
+  --page: #e6e6e3;
   --frame: #f4f4f2;
   --ink: #111111;
   --muted: #6b6b6b;
@@ -41,27 +44,14 @@
   --fade: #f4f4f2;
   --footer-mist: rgba(0, 0, 0, 0.05);
   --footer-accent: rgba(255, 90, 10, 0.1);
+  --strap: rgba(17, 17, 17, 0.85);
 }
 
 @theme inline {
   --color-background: var(--frame);
   --color-foreground: var(--ink);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --animate-online-ping: online-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
   --animate-marquee: marquee 46s linear infinite;
-
-  @keyframes online-ping {
-    0% {
-      transform: scale(1);
-      opacity: 0.65;
-    }
-    75%,
-    100% {
-      transform: scale(2.6);
-      opacity: 0;
-    }
-  }
 
   @keyframes marquee {
     from {
@@ -73,13 +63,15 @@
   }
 }
 
-html {
-  background: #000;
+html,
+body {
+  background: var(--page);
 }
 
 body {
-  background: var(--frame);
   color: var(--ink);
   font-family: var(--font-sans), system-ui, sans-serif;
-  transition: background-color 280ms ease, color 280ms ease;
+  transition:
+    background-color 280ms ease,
+    color 280ms ease;
 }
