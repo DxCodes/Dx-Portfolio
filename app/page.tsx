@@ -6,12 +6,14 @@ import TechStack from "./components/TechStack";
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <TechStack />
-      <Projects />
-      <Contact />
+    <>
+      <main id="main" tabIndex={-1} className="outline-none">
+        <Hero />
+        <TechStack />
+        <Projects />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
