@@ -90,6 +90,9 @@ export default function Hero() {
                   </AnimatePresence>
                 </span>
 
+                {/* On mobile, push "I am Dhruv 👋" onto its own line below the greeting. */}
+                <span aria-hidden className="h-0 basis-full md:hidden" />
+
                 <span className="whitespace-nowrap">
                   {INTRO} {site.name}
                 </span>
