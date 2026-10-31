@@ -6,7 +6,8 @@ export const site = {
   domain: "heyitsdhruv.com",
   url: "https://heyitsdhruv.com",
   email: "hello@heyitsdhruv.com",
-  title: "Dhruv — Software Developer & Fintech Builder",
+  /** Browser tab, Google result heading and link previews. */
+  title: "Dx Portfolio",
   role: "Software Developer & Fintech Builder",
   description:
     "I build web applications and SaaS products at the intersection of technology and finance. With a background in trading and a passion for building, I enjoy turning complex ideas and workflows into simple, useful software.",

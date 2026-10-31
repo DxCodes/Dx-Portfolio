@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/",
-    siteName: site.domain,
+    siteName: site.title,
     title: site.title,
     description: site.description,
   },
@@ -32,14 +32,20 @@ export const metadata: Metadata = {
   },
 };
 
-const personJsonLd = {
+// WebSite.name is what Google shows as the site name above the result heading.
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: site.name,
-  url: site.url,
-  email: `mailto:${site.email}`,
-  jobTitle: site.role,
-  sameAs: socials.map((s) => s.href),
+  "@graph": [
+    { "@type": "WebSite", name: site.title, url: site.url },
+    {
+      "@type": "Person",
+      name: site.name,
+      url: site.url,
+      email: `mailto:${site.email}`,
+      jobTitle: site.role,
+      sameAs: socials.map((s) => s.href),
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -76,7 +82,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </ThemeProvider>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </body>
     </html>
