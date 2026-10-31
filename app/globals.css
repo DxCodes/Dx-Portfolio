@@ -16,7 +16,7 @@
   --card: rgba(255, 255, 255, 0.03);
   --card-hover: rgba(255, 255, 255, 0.06);
   --dot: rgba(255, 255, 255, 0.22);
-  --nav: rgba(0, 0, 0, 0.55);
+  --nav: rgba(0, 0, 0, 0.3);
   --button-bg: #ffffff;
   --button-fg: #000000;
   --fade: #000000;
@@ -38,7 +38,7 @@
   --card: rgba(0, 0, 0, 0.03);
   --card-hover: rgba(0, 0, 0, 0.06);
   --dot: rgba(0, 0, 0, 0.28);
-  --nav: rgba(244, 244, 242, 0.78);
+  --nav: rgba(244, 244, 242, 0.5);
   --button-bg: #111111;
   --button-fg: #ffffff;
   --fade: #f4f4f2;

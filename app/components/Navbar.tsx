@@ -59,7 +59,7 @@ export default function Navbar() {
       ref={headerRef}
       className={`sticky top-0 z-50 w-full border-b font-sans tracking-[-0.02em] transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
         scrolled || isMenuOpen
-          ? "border-[var(--line)] bg-[var(--nav)] shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-2xl backdrop-saturate-150"
+          ? "border-[var(--line)] bg-[var(--nav)] shadow-[0_8px_32px_rgba(0,0,0,0.18),inset_0_1px_0_0_var(--line)] backdrop-blur-3xl backdrop-saturate-200"
           : "border-transparent bg-transparent"
       }`}
     >
@@ -136,7 +136,7 @@ export default function Navbar() {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className="absolute inset-x-0 top-full z-50 border-t border-[var(--line)] bg-[var(--nav)] shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-xl backdrop-saturate-150 md:hidden"
+          className="absolute inset-x-0 top-full z-50 border-t border-[var(--line)] bg-[var(--nav)] shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-3xl backdrop-saturate-200 md:hidden"
         >
           <nav aria-label="Mobile" className="space-y-1 px-4 py-3 sm:px-6">
             {navLinks.map((link) => (
