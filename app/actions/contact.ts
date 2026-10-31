@@ -1,6 +1,8 @@
 "use server";
 
+import { headers } from "next/headers";
 import { site } from "@/data/site";
+import { claim, release } from "@/lib/rate-limit";
 
 export type ContactState =
   | { status: "idle" }
@@ -8,6 +10,8 @@ export type ContactState =
   | { status: "error"; message: string; fallback?: boolean };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+/** How long one visitor (by IP and by email) must wait between messages. */
+const COOLDOWN_SEC = 5 * 60;
 
 /**
  * Sends the contact form through Resend's REST API.
@@ -33,6 +37,18 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
     };
   }
 
+  // Limit by IP and by the sender's email, so neither a new address nor a new network gets around it.
+  const ip = (await headers()).get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const keys = [`contact:ip:${ip}`, `contact:email:${email.toLowerCase()}`];
+  const wait = await claim(keys, COOLDOWN_SEC);
+  if (wait > 0) {
+    const minutes = Math.ceil(wait / 60);
+    return {
+      status: "error",
+      message: `You just sent a message. Please wait ${minutes} more minute${minutes === 1 ? "" : "s"} before sending another.`,
+    };
+  }
+
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
@@ -46,6 +62,7 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
   });
 
   if (!res.ok) {
+    await release(keys);
     return {
       status: "error",
       message: `Something went wrong — email me directly at ${site.email}.`,

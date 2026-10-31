@@ -24,6 +24,10 @@ The form posts to a Server Action ([`app/actions/contact.ts`](app/actions/contac
 mail through [Resend](https://resend.com). Copy `.env.example` to `.env.local` and set
 `RESEND_API_KEY`. Without a key, the form shows a mailto fallback instead.
 
+Each visitor can send one message every 5 minutes (tracked by IP and by email). On Vercel, add
+an Upstash Redis store so the limit is shared across serverless instances; without it the limit
+lives in memory ([`lib/rate-limit.ts`](lib/rate-limit.ts)).
+
 ## Scripts
 
 | Script              | What it does          |
